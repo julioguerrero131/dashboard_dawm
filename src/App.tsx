@@ -11,7 +11,7 @@ function App() {
   return (
     <Grid container spacing={5}>
 	    <Grid xs={6} sm={4} md={3} lg={2}>
-			<Grid lg={12}>
+			<Grid lg={12} sx={{paddingBottom: 5}}>
 				<Indicator title='Precipitación' subtitle='Probabilidad' value={0.13}  />
 			</Grid>
 			<Grid lg={12}>

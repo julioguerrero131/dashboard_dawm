@@ -40,6 +40,7 @@ export default function WeatherChart() {
                 width="100%"
                 height="400px"
                 options={options}
+                legendToggle
         />
         </Paper>
     )

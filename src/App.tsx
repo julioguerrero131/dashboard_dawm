@@ -129,6 +129,8 @@ function App() {
 
       })
 
+      
+      // arrayObjects = arrayObjects.slice(0, 20)
       setDataGraphic(arrayObjects)
 
       arrayObjects = arrayObjects.slice(0, 8)

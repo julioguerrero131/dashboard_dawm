@@ -42,7 +42,7 @@ export default function ControlPanel({ setValue }) {
   const handleChange = (event: SelectChangeEvent) => {
 
     let idx = parseInt(event.target.value)
-    setSelected(idx);
+    setSelected(idx)
     setValue(idx)
 
     {/* Modificación de la referencia */ }

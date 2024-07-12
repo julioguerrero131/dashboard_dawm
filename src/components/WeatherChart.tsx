@@ -5,27 +5,50 @@ import { useState, useEffect } from "react";
 export default function WeatherChart({ value, dataGraphic }) {
 
   let [data, setData] = useState([])
-  let [input, setInput] = useState(-1)
 
   useEffect(() => {
 
     (async () => {
 
-      setInput(value)
-
       {/* Procesar data */ }
+
       let processData = [
-        ["Hora", "Precipitación", "Humedad", "Nubosidad"]
+        ["Hora"]
       ]
 
+      if (value == 0 || value == -1){
+
+        processData[0].push("Precipitación")
+        for(let item of dataGraphic) {
+          processData.push([item.rangeHours, parseFloat(item.precipitation)])
+        }
+        
+      } else if (value == 1) {
+
+        processData[0].push("Humedad")
+        for(let item of dataGraphic) {
+          const humidity = await item.humidity.split(" ")[0]
+          processData.push([item.rangeHours, parseInt(humidity)])
+        }
+
+      } else if (value == 2) {
+
+        processData[0].push("Nubosidad")
+        for(let item of dataGraphic) {
+          const clouds = await item.clouds.split(" ")[2]
+          processData.push([item.rangeHours, parseInt(clouds)])
+        }
+
+      }
+      
+      {/*
       for(let item of dataGraphic) {
         const humidity = await item.humidity.split(" ")[0]
         const clouds = await item.clouds.split(" ")[2]
         processData.push([item.rangeHours, parseFloat(item.precipitation), parseInt(humidity), parseInt(clouds)])
       }
+      */}
 
-
-      console.log(processData)
       setData(processData)
 
     })()
@@ -66,7 +89,7 @@ export default function WeatherChart({ value, dataGraphic }) {
         chartType="LineChart"
         data={data}
         width="100%"
-        height="400px"
+        height="600px"
         options={options}
         legendToggle
       />

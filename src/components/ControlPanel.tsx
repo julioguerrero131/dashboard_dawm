@@ -8,7 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { useState, useRef } from 'react';
 
-export default function ControlPanel() {
+export default function ControlPanel({ setValue }) {
 
   {/* Variable de estado y función de actualización */ }
 
@@ -21,9 +21,18 @@ export default function ControlPanel() {
   {/* Datos de los elementos del Select */ }
 
   let items = [
-    { "name": "Precipitación", "description": "Cantidad de agua, en forma de lluvia, nieve o granizo, que cae sobre una superficie en un período específico." },
-    { "name": "Humedad", "description": "Cantidad de vapor de agua presente en el aire, generalmente expresada como un porcentaje." },
-    { "name": "Nubosidad", "description": "Grado de cobertura del cielo por nubes, afectando la visibilidad y la cantidad de luz solar recibida." }
+    { 
+      "name": "Precipitación", 
+      "description": "Cantidad de agua, en forma de lluvia, nieve o granizo, que cae sobre una superficie en un período específico." 
+    },
+    { 
+      "name": "Humedad", 
+      "description": "Cantidad de vapor de agua presente en el aire, generalmente expresada como un porcentaje." 
+    },
+    { 
+      "name": "Nubosidad", 
+      "description": "Grado de cobertura del cielo por nubes, afectando la visibilidad y la cantidad de luz solar recibida." 
+    }
   ]
 
   let options = items.map((item, key) => <MenuItem key={key} value={key}>{item["name"]}</MenuItem>)
@@ -41,6 +50,13 @@ export default function ControlPanel() {
       descriptionRef.current.innerHTML = (idx >= 0) ? items[idx]["description"] : ""
     }
 
+    if (idx < 0) {
+      let header = ["Horas", items[idx]["name"]]
+    } else {
+      let header = ["Horas", items[0]["name"]]
+    }
+
+    // setValue()
 
   };
 
@@ -84,7 +100,7 @@ export default function ControlPanel() {
                     (selected >= 0) ? items[selected]["description"] : ""
                 }
             </Typography> 
-            */}
+      */}
 
       {/* Muestra la descripción de la variable seleccionada */}
       <Typography ref={descriptionRef} mt={2} component="p" color="text.secondary" />

@@ -13,6 +13,8 @@ function App() {
 
   let [indicators, setIndicators] = useState([])
   let [rowsTable, setRowsTable] = useState([])
+  let [dataGraphic, setDataGraphic] = useState([])
+  let [tunnel, setTunnel] = useState([])
 
 
   {/* Hook: useEffect */ }
@@ -30,7 +32,7 @@ function App() {
       // let savedTextXML = await response.text();
 
       {/* LocalStorage */ }
-
+      
       let savedTextXML = localStorage.getItem("openWeatherMap")
       let expiringTime = localStorage.getItem("expiringTime")
 
@@ -78,14 +80,14 @@ function App() {
 
       let location = xml.getElementsByTagName("location")[1]
 
-      let geobaseid = location.getAttribute("geobaseid")
-      dataToIndicators.push(["Location", "geobaseid", geobaseid])
+      let name = xml.getElementsByTagName("name")[0]
+      dataToIndicators.push(["Ciudad", "Ciudad", name.innerHTML])
 
       let latitude = location.getAttribute("latitude")
-      dataToIndicators.push(["Location", "Latitude", latitude])
+      dataToIndicators.push(["Latitud", "Latitud", latitude])
 
       let longitude = location.getAttribute("longitude")
-      dataToIndicators.push(["Location", "Longitude", longitude])
+      dataToIndicators.push(["Longitud", "Longitud", longitude])
 
       // console.log(dataToIndicators)
 
@@ -110,15 +112,27 @@ function App() {
         let rangeHours = timeElement.getAttribute("from").split("T")[1] + " - " + timeElement.getAttribute("to").split("T")[1]
 
         let windDirection = timeElement.getElementsByTagName("windDirection")[0].getAttribute("deg") + " " + timeElement.getElementsByTagName("windDirection")[0].getAttribute("code")
+        
+        let precipitation = timeElement.getElementsByTagName("precipitation")[0].getAttribute("probability")
+        
+        let humidity = timeElement.getElementsByTagName("humidity")[0].getAttribute("value") + " " + timeElement.getElementsByTagName("humidity")[0].getAttribute("unit")
+        
+        let clouds = timeElement.getElementsByTagName("clouds")[0].getAttribute("value") + ": " + timeElement.getElementsByTagName("clouds")[0].getAttribute("all") + " " + timeElement.getElementsByTagName("clouds")[0].getAttribute("unit") 
 
-        return { "rangeHours": rangeHours, "windDirection": windDirection }
+        return { 
+          "rangeHours": rangeHours, 
+          "windDirection": windDirection,
+          "precipitation": precipitation,
+          "humidity": humidity,
+          "clouds": clouds
+        }
 
       })
 
-      arrayObjects = arrayObjects.slice(0,8)
-			
-      {/* 3. Actualice de la variable de estado mediante la función de actualización */}
+      setDataGraphic(arrayObjects)
 
+      arrayObjects = arrayObjects.slice(0, 8)
+      {/* 3. Actualice de la variable de estado mediante la función de actualización */ }
       setRowsTable(arrayObjects)
 
     })()
@@ -127,14 +141,11 @@ function App() {
 
   return (
     <Grid container spacing={5}>
-      <Grid xs={6} sm={4} md={3} lg={2}>
-        <Grid lg={12} sx={{ paddingBottom: 5 }}>
-          <Indicator title='Precipitación' subtitle='Probabilidad' value={0.13} />
-        </Grid>
-        <Grid lg={12}>
-          <Summary></Summary>
-        </Grid>
+      
+      <Grid lg={4}>
+        <Summary></Summary>
       </Grid>
+
       <Grid xs={6} sm={4} md={3} lg={2}>
         {indicators[0]}
       </Grid>
@@ -144,27 +155,18 @@ function App() {
       <Grid xs={6} sm={4} md={3} lg={2}>
         {indicators[2]}
       </Grid>
-      <Grid xs={6} sm={4} md={3} lg={2}>
-        <Indicator title='Precipitación' subtitle='Probabilidad' value={0.13} />
-      </Grid>
-      <Grid xs={6} sm={4} md={3} lg={2}>
-        <Indicator title='Precipitación' subtitle='Probabilidad' value={0.13} />
-      </Grid>
 
-      <Grid xs={6} sm={4} md={3} lg={6}>
-
-      </Grid>
       <Grid xs={12} md={6} lg={12} >
         {/* 4. Envíe la variable de estado (dataTable) como prop (input) del componente (BasicTable) */}
         <BasicTable rows={rowsTable}></BasicTable>
       </Grid>
 
       <Grid xs={12} lg={2}>
-        <ControlPanel />
+        <ControlPanel setValue={setTunnel} />
       </Grid>
 
       <Grid xs={12} lg={10}>
-        <WeatherChart></WeatherChart>
+        <WeatherChart value={tunnel} data={dataGraphic}></WeatherChart>
       </Grid>
     </Grid>
   )

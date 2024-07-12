@@ -83,6 +83,9 @@ function App() {
       let name = xml.getElementsByTagName("name")[0]
       dataToIndicators.push(["Ciudad", "Ciudad", name.innerHTML])
 
+      let altitude = location.getAttribute("altitude")
+      dataToIndicators.push(["Altitud", "Altitud", altitude])
+
       let latitude = location.getAttribute("latitude")
       dataToIndicators.push(["Latitud", "Latitud", latitude])
 
@@ -156,6 +159,9 @@ function App() {
       </Grid>
       <Grid xs={6} sm={4} md={3} lg={2}>
         {indicators[2]}
+      </Grid>
+      <Grid xs={6} sm={4} md={3} lg={2}>
+        {indicators[3]}
       </Grid>
 
       <Grid xs={12} md={6} lg={12} >

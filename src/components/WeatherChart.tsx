@@ -1,7 +1,36 @@
 import { Chart } from "react-google-charts";
 import Paper from '@mui/material/Paper';
+import { useState, useEffect } from "react";
 
-export default function WeatherChart({ value, data }) {
+export default function WeatherChart({ value, dataGraphic }) {
+
+  let [data, setData] = useState([])
+  let [input, setInput] = useState(-1)
+
+  useEffect(() => {
+
+    (async () => {
+
+      setInput(value)
+
+      {/* Procesar data */ }
+      let processData = [
+        ["Hora", "Precipitación", "Humedad", "Nubosidad"]
+      ]
+
+      for(let item of dataGraphic) {
+        const humidity = await item.humidity.split(" ")[0]
+        const clouds = await item.clouds.split(" ")[2]
+        processData.push([item.rangeHours, parseFloat(item.precipitation), parseInt(humidity), parseInt(clouds)])
+      }
+
+
+      console.log(processData)
+      setData(processData)
+
+    })()
+
+  }, [value, dataGraphic])
 
   {/* Configuración */ }
 
@@ -22,14 +51,6 @@ export default function WeatherChart({ value, data }) {
   //   ["18:00", 6, 64, 84],
   //   ["21:00", 5, 77, 99]
   // ];
-
-  {/* Procesar data */}
-  let processData = [
-    ["Hora", "Precipitación", "Humedad", "Nubosidad"]
-  ]
-
-  
-
 
   {/* JSX */ }
 

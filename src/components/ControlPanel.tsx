@@ -43,20 +43,13 @@ export default function ControlPanel({ setValue }) {
 
     let idx = parseInt(event.target.value)
     setSelected(idx);
+    setValue(idx)
 
     {/* Modificación de la referencia */ }
 
     if (descriptionRef.current !== null) {
       descriptionRef.current.innerHTML = (idx >= 0) ? items[idx]["description"] : ""
     }
-
-    if (idx < 0) {
-      let header = ["Horas", items[idx]["name"]]
-    } else {
-      let header = ["Horas", items[0]["name"]]
-    }
-
-    // setValue()
 
   };
 

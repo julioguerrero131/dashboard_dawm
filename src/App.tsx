@@ -32,7 +32,7 @@ function App() {
       // let savedTextXML = await response.text();
 
       {/* LocalStorage */ }
-      
+
       let savedTextXML = localStorage.getItem("openWeatherMap")
       let expiringTime = localStorage.getItem("expiringTime")
 
@@ -166,7 +166,7 @@ function App() {
       </Grid>
 
       <Grid xs={12} lg={10}>
-        <WeatherChart value={tunnel} data={dataGraphic}></WeatherChart>
+        <WeatherChart value={tunnel} dataGraphic={dataGraphic}></WeatherChart>
       </Grid>
     </Grid>
   )

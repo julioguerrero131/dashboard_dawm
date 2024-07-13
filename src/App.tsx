@@ -1,5 +1,5 @@
 import Grid from '@mui/material/Unstable_Grid2'
-import './App.css'
+import './styles/App.css'
 import Indicator from './components/Indicator'
 import Summary from './components/Summary'
 import BasicTable from './components/BasicTable'
@@ -147,46 +147,71 @@ function App() {
 
   return (
     <>
-      <Grid container spacing={2} rowGap={2} sx={{width: '100%'}}>
+      <Grid container rowGap={2} sx={{ width: '100%' }}>
 
-        <Grid sm={12} md={12} lg={12} sx={{padding: 0, margin: 0, width: '100%'}}>
+        <Grid sm={12} md={12} lg={12} sx={{ padding: 0, margin: 0, width: '100%' }}>
           <Navbar />
         </Grid>
 
-        <Grid container sx={{ display: 'flex', paddingX: 3, width: '100%' }}>
+        <Grid container sm={12} md={12} lg={12} id="summary" sx={{ width: '100%', marginY: 3, padding: 2, alignItems: 'center' }}>
 
-          <Grid sm={12} md={12} lg={12} id="summary" sx={{ marginY: 3, display: 'flex', justifyContent: 'left' }}>
+          <Grid sm={8} md={8} lg={8} sx={{ textAlign: 'left', marginY: 3, padding: 2 }}>
+            <h3>Clima Guayaquil</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quos mollitia suscipit sed quas at. Fugit neque porro quae tempore omnis, temporibus unde tenetur amet ex odio error, architecto sint?</p>
+          </Grid>
+
+          <Grid sm={4} md={4} lg={4} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Summary></Summary>
           </Grid>
 
-          <Grid container lg={12} id="indicators" sx={{ marginY: 3, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', width: '100%' }}>
-            <Grid xs={6} sm={4} md={3} lg={2}>
-              {indicators[0]}
-            </Grid>
-            <Grid xs={6} sm={4} md={3} lg={2}>
-              {indicators[1]}
-            </Grid>
-            <Grid xs={6} sm={4} md={3} lg={2}>
-              {indicators[2]}
-            </Grid>
-            <Grid xs={6} sm={4} md={3} lg={2}>
-              {indicators[3]}
-            </Grid>
+        </Grid>
+
+        <Grid container lg={12} id="indicators" sx={{ width: '100%', margin: 5, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+
+          <Grid xs={12} sm={12} md={12} lg={12} id="title">
+            <h2>Indicadores</h2>
           </Grid>
 
-          <Grid xs={12} md={12} lg={12} id="table" sx={{ marginY: 3 }}>
+          <Grid xs={6} sm={4} md={3} lg={2} sx={{ flexGrow: 1 }}>
+            {indicators[0]}
+          </Grid>
+          <Grid xs={6} sm={4} md={3} lg={2} sx={{ flexGrow: 1 }}>
+            {indicators[1]}
+          </Grid>
+          <Grid xs={6} sm={4} md={3} lg={2} sx={{ flexGrow: 1 }}>
+            {indicators[2]}
+          </Grid>
+          <Grid xs={6} sm={4} md={3} lg={2} sx={{ flexGrow: 1 }}>
+            {indicators[3]}
+          </Grid>
+
+        </Grid>
+
+        <Grid container xs={12} md={12} lg={12} id="table">
+
+          <Grid xs={12} md={12} lg={12} id="title">
+            <h2>Tabla</h2>
+          </Grid>
+
+          <Grid xs={12} md={12} lg={12} sx={{ marginX: 5 }}>
             {/* 4. Envíe la variable de estado (dataTable) como prop (input) del componente (BasicTable) */}
             <BasicTable rows={rowsTable}></BasicTable>
           </Grid>
 
-          <Grid xs={12} lg={2} id="graphic">
+        </Grid>
+
+        <Grid container xs={12} md={12} lg={12} id="graphic" sx={{ margin: 5 }}>
+          <Grid xs={12} sm={12} md={12} lg={12} id="title">
+            <h2>Grafico</h2>
+          </Grid>
+
+          <Grid xs={12} sm={12} md={3} lg={2} sx={{ paddingRight: 2 }}>
             <ControlPanel setValue={setTunnel} />
           </Grid>
 
-          <Grid xs={12} lg={10}>
+          <Grid xs={12} sm={12} md={9} lg={10}>
             <WeatherChart value={tunnel} dataGraphic={dataGraphic}></WeatherChart>
           </Grid>
-
         </Grid>
 
       </Grid>

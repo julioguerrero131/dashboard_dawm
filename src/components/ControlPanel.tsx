@@ -98,7 +98,6 @@ export default function ControlPanel({ setValue }) {
       {/* Muestra la descripción de la variable seleccionada */}
       <Typography ref={descriptionRef} mt={2} component="p" color="text.secondary" />
 
-
     </Paper>
 
 

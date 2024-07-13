@@ -81,6 +81,7 @@ export default function WeatherChart({ value, dataGraphic }) {
     <Paper
       sx={{
         // p: 1,
+        pb: 3,
         display: 'flex',
         flexDirection: 'column'
       }}
@@ -89,7 +90,7 @@ export default function WeatherChart({ value, dataGraphic }) {
         chartType="LineChart"
         data={data}
         width="100%"
-        height="600px"
+        height="500px"
         options={options}
         legendToggle
       />

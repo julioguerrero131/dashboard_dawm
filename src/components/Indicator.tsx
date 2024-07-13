@@ -13,6 +13,7 @@ export default function Indicator(config: Config) {
         display: "flex",
         flexDirection: "column"
       }}
+      elevation={5}
     >
       <Typography component="h2" variant="h6" color="primary" gutterBottom>
         {config.title}

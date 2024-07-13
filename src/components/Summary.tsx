@@ -5,26 +5,39 @@ import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 
 import sunrise from '../assets/sunrise.jpeg'
+import afternoon from '../assets/afternoon.jpeg'
+import evening from '../assets/evening.jpg'
 import { useEffect, useState } from 'react';
 
 export default function Summary() {
 
   const [dateInfo, setDateInfo] = useState({ date: '', time: '', wish: '' });
+  const [image, setImage] = useState(sunrise)
 
   useEffect(() => {
-    const locale = 'en';
+    const locale = 'es';
     const updateDate = () => {
       const today = new Date();
 
       const day = today.toLocaleDateString(locale, { weekday: 'long' });
-      const date = `${day}, ${today.getDate()} ${today.toLocaleDateString(locale, { month: 'long' })}\n\n`;
+      const date = `${day[0].toUpperCase() + day.substring(1)}, ${today.getDate()} ${today.toLocaleDateString(locale, { month: 'long' })[0].toUpperCase() + today.toLocaleDateString(locale, { month: 'long' }).substring(1)}\n\n`;
 
       const hour = today.getHours();
-      const wish = `${(hour < 12 && 'Morning') || (hour < 17 && 'Afternoon') || 'Evening'}`;
+      const wish = `${(hour < 12 && 'Buenos días!') || (hour < 17 && 'Buenas tardes!') || 'Buenas Noches!'}`;
 
       const time = today.toLocaleTimeString(locale, { hour: 'numeric', hour12: true, minute: 'numeric', second: 'numeric' });
 
       setDateInfo({ date, time, wish });
+
+      if (hour < 12) {
+        setImage(sunrise) 
+      } else if (hour < 17) {
+        setImage(afternoon)
+      } else {
+        setImage(evening)
+      }
+
+
     };
 
     updateDate();
@@ -34,12 +47,12 @@ export default function Summary() {
   }, []);
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} elevation={5}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image={sunrise}
+          image={image}
           alt="Amanecer"
         />
         <CardContent>

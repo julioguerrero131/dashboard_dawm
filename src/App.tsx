@@ -153,11 +153,13 @@ function App() {
           <Navbar />
         </Grid>
 
-        <Grid container sm={12} md={12} lg={12} id="summary" sx={{ width: '100%', marginY: 3, padding: 2, alignItems: 'center' }}>
+        <Grid container sm={12} md={12} lg={12} id="summary" sx={{ width: '100%', marginY: 3, padding: 2, alignItems: 'center', justifyContent: 'center' }}>
 
           <Grid sm={8} md={8} lg={8} sx={{ textAlign: 'left', marginY: 3, padding: 2 }}>
-            <h3>Clima Guayaquil</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quos mollitia suscipit sed quas at. Fugit neque porro quae tempore omnis, temporibus unde tenetur amet ex odio error, architecto sint?</p>
+            <h3 id='inicio-title'>Guayaquil, Ecuador</h3>
+            <p id='inicio-text'>
+              Aquí encontrarás la información más actualizada sobre el clima de nuestra ciudad, incluyendo temperaturas, condiciones meteorológicas y pronósticos. ¡Mantente informado y planifica tu día con confianza!
+            </p>
           </Grid>
 
           <Grid sm={4} md={4} lg={4} sx={{ paddingY: 2, display: 'flex', justifyContent: 'center' }}>
@@ -169,7 +171,7 @@ function App() {
         <Grid container lg={12} id="indicators" sx={{ width: '100%', margin: 5, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
 
           <Grid xs={12} sm={12} md={12} lg={12} id="title">
-            <h2>Indicadores</h2>
+            <h2 className='section-title'>Detalles de la Localización</h2>
           </Grid>
 
           <Grid xs={12} sm={6} md={3} lg={3} sx={{ flexGrow: 1 }}>
@@ -190,7 +192,7 @@ function App() {
         <Grid container xs={12} md={12} lg={12} id="table">
 
           <Grid xs={12} md={12} lg={12} id="title">
-            <h2>Tabla</h2>
+            <h2 className='section-title'>Historial del Clima</h2>
           </Grid>
 
           <Grid xs={12} md={12} lg={12}>
@@ -202,7 +204,7 @@ function App() {
 
         <Grid container xs={12} md={12} lg={12} id="graphic">
           <Grid xs={12} sm={12} md={12} lg={12} id="title">
-            <h2>Grafico</h2>
+            <h2 className='section-title'>Gráfico del Clima</h2>
           </Grid>
 
           <Grid xs={12} sm={12} md={3} lg={3} id="control-panel">

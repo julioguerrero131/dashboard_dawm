@@ -85,6 +85,7 @@ export default function WeatherChart({ value, dataGraphic }) {
         display: 'flex',
         flexDirection: 'column'
       }}
+      elevation={2}
     >
       <Chart
         chartType="LineChart"

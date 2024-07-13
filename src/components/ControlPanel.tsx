@@ -62,6 +62,7 @@ export default function ControlPanel({ setValue }) {
         display: 'flex',
         flexDirection: 'column'
       }}
+      elevation={5}
     >
 
       <Typography mb={2} component="h3" variant="h6" color="primary">

@@ -16,9 +16,10 @@ export default function Navbar() {
       <h3>Logo</h3>
       <nav ref={navRef}>
         <a href="#" onClick={showNavBar}>Inicio</a>
-        <a href="#" onClick={showNavBar}>Indicadores</a>
-        <a href="#" onClick={showNavBar}>Tabla</a>
-        <a href="#" onClick={showNavBar}>Gráfico</a>
+        <a href="#summary" onClick={showNavBar}>Resumen</a>
+        <a href="#indicators" onClick={showNavBar}>Indicadores</a>
+        <a href="#table" onClick={showNavBar}>Tabla</a>
+        <a href="#graphic" onClick={showNavBar}>Gráfico</a>
         <button className="nav-btn nav-close-btn" onClick={showNavBar}>
           <FaTimes />
         </button>

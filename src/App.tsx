@@ -147,40 +147,48 @@ function App() {
 
   return (
     <>
-      <Grid container spacing={2}>
-        <Grid sm={12} md={12} lg={12}>
-          <Navbar/>
+      <Grid container spacing={2} rowGap={2} sx={{width: '100%'}}>
+
+        <Grid sm={12} md={12} lg={12} sx={{padding: 0, margin: 0, width: '100%'}}>
+          <Navbar />
         </Grid>
 
-        <Grid sm={4} md={4} lg={4} sx={{justifyContent:"center", alignItems:"center"}}>
-          <Summary></Summary>
+        <Grid container sx={{ display: 'flex', paddingX: 3, width: '100%' }}>
+
+          <Grid sm={12} md={12} lg={12} id="summary" sx={{ marginY: 3, display: 'flex', justifyContent: 'left' }}>
+            <Summary></Summary>
+          </Grid>
+
+          <Grid container lg={12} id="indicators" sx={{ marginY: 3, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', width: '100%' }}>
+            <Grid xs={6} sm={4} md={3} lg={2}>
+              {indicators[0]}
+            </Grid>
+            <Grid xs={6} sm={4} md={3} lg={2}>
+              {indicators[1]}
+            </Grid>
+            <Grid xs={6} sm={4} md={3} lg={2}>
+              {indicators[2]}
+            </Grid>
+            <Grid xs={6} sm={4} md={3} lg={2}>
+              {indicators[3]}
+            </Grid>
+          </Grid>
+
+          <Grid xs={12} md={12} lg={12} id="table" sx={{ marginY: 3 }}>
+            {/* 4. Envíe la variable de estado (dataTable) como prop (input) del componente (BasicTable) */}
+            <BasicTable rows={rowsTable}></BasicTable>
+          </Grid>
+
+          <Grid xs={12} lg={2} id="graphic">
+            <ControlPanel setValue={setTunnel} />
+          </Grid>
+
+          <Grid xs={12} lg={10}>
+            <WeatherChart value={tunnel} dataGraphic={dataGraphic}></WeatherChart>
+          </Grid>
+
         </Grid>
 
-        <Grid xs={6} sm={4} md={3} lg={2}>
-          {indicators[0]}
-        </Grid>
-        <Grid xs={6} sm={4} md={3} lg={2}>
-          {indicators[1]}
-        </Grid>
-        <Grid xs={6} sm={4} md={3} lg={2}>
-          {indicators[2]}
-        </Grid>
-        <Grid xs={6} sm={4} md={3} lg={2}>
-          {indicators[3]}
-        </Grid>
-
-        <Grid xs={12} md={6} lg={12} >
-          {/* 4. Envíe la variable de estado (dataTable) como prop (input) del componente (BasicTable) */}
-          <BasicTable rows={rowsTable}></BasicTable>
-        </Grid>
-
-        <Grid xs={12} lg={2}>
-          <ControlPanel setValue={setTunnel} />
-        </Grid>
-
-        <Grid xs={12} lg={10}>
-          <WeatherChart value={tunnel} dataGraphic={dataGraphic}></WeatherChart>
-        </Grid>
       </Grid>
     </>
   )

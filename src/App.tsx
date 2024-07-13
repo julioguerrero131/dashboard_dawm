@@ -6,6 +6,7 @@ import BasicTable from './components/BasicTable'
 import WeatherChart from './components/WeatherChart'
 import ControlPanel from './components/ControlPanel'
 import { useEffect, useState } from 'react'
+import Navbar from './components/Navbar'
 
 function App() {
 
@@ -115,15 +116,15 @@ function App() {
         let rangeHours = timeElement.getAttribute("from").split("T")[1] + " - " + timeElement.getAttribute("to").split("T")[1]
 
         let windDirection = timeElement.getElementsByTagName("windDirection")[0].getAttribute("deg") + " " + timeElement.getElementsByTagName("windDirection")[0].getAttribute("code")
-        
-        let precipitation = timeElement.getElementsByTagName("precipitation")[0].getAttribute("probability")
-        
-        let humidity = timeElement.getElementsByTagName("humidity")[0].getAttribute("value") + " " + timeElement.getElementsByTagName("humidity")[0].getAttribute("unit")
-        
-        let clouds = timeElement.getElementsByTagName("clouds")[0].getAttribute("value") + ": " + timeElement.getElementsByTagName("clouds")[0].getAttribute("all") + " " + timeElement.getElementsByTagName("clouds")[0].getAttribute("unit") 
 
-        return { 
-          "rangeHours": rangeHours, 
+        let precipitation = timeElement.getElementsByTagName("precipitation")[0].getAttribute("probability")
+
+        let humidity = timeElement.getElementsByTagName("humidity")[0].getAttribute("value") + " " + timeElement.getElementsByTagName("humidity")[0].getAttribute("unit")
+
+        let clouds = timeElement.getElementsByTagName("clouds")[0].getAttribute("value") + ": " + timeElement.getElementsByTagName("clouds")[0].getAttribute("all") + " " + timeElement.getElementsByTagName("clouds")[0].getAttribute("unit")
+
+        return {
+          "rangeHours": rangeHours,
           "windDirection": windDirection,
           "precipitation": precipitation,
           "humidity": humidity,
@@ -132,7 +133,7 @@ function App() {
 
       })
 
-      
+
       // arrayObjects = arrayObjects.slice(0, 20)
       setDataGraphic(arrayObjects)
 
@@ -145,38 +146,43 @@ function App() {
   }, [])
 
   return (
-    <Grid container spacing={5}>
-      
-      <Grid lg={4}>
-        <Summary></Summary>
-      </Grid>
+    <>
+      <Grid container spacing={2}>
+        <Grid sm={12} md={12} lg={12}>
+          <Navbar/>
+        </Grid>
 
-      <Grid xs={6} sm={4} md={3} lg={2}>
-        {indicators[0]}
-      </Grid>
-      <Grid xs={6} sm={4} md={3} lg={2}>
-        {indicators[1]}
-      </Grid>
-      <Grid xs={6} sm={4} md={3} lg={2}>
-        {indicators[2]}
-      </Grid>
-      <Grid xs={6} sm={4} md={3} lg={2}>
-        {indicators[3]}
-      </Grid>
+        <Grid sm={4} md={4} lg={4} sx={{justifyContent:"center", alignItems:"center"}}>
+          <Summary></Summary>
+        </Grid>
 
-      <Grid xs={12} md={6} lg={12} >
-        {/* 4. Envíe la variable de estado (dataTable) como prop (input) del componente (BasicTable) */}
-        <BasicTable rows={rowsTable}></BasicTable>
-      </Grid>
+        <Grid xs={6} sm={4} md={3} lg={2}>
+          {indicators[0]}
+        </Grid>
+        <Grid xs={6} sm={4} md={3} lg={2}>
+          {indicators[1]}
+        </Grid>
+        <Grid xs={6} sm={4} md={3} lg={2}>
+          {indicators[2]}
+        </Grid>
+        <Grid xs={6} sm={4} md={3} lg={2}>
+          {indicators[3]}
+        </Grid>
 
-      <Grid xs={12} lg={2}>
-        <ControlPanel setValue={setTunnel} />
-      </Grid>
+        <Grid xs={12} md={6} lg={12} >
+          {/* 4. Envíe la variable de estado (dataTable) como prop (input) del componente (BasicTable) */}
+          <BasicTable rows={rowsTable}></BasicTable>
+        </Grid>
 
-      <Grid xs={12} lg={10}>
-        <WeatherChart value={tunnel} dataGraphic={dataGraphic}></WeatherChart>
+        <Grid xs={12} lg={2}>
+          <ControlPanel setValue={setTunnel} />
+        </Grid>
+
+        <Grid xs={12} lg={10}>
+          <WeatherChart value={tunnel} dataGraphic={dataGraphic}></WeatherChart>
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   )
 }
 

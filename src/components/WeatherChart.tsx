@@ -80,7 +80,7 @@ export default function WeatherChart({ value, dataGraphic }) {
   return (
     <Paper
       sx={{
-        p: 2,
+        // p: 1,
         display: 'flex',
         flexDirection: 'column'
       }}

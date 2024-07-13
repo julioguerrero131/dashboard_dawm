@@ -6,10 +6,38 @@
   box-sizing: border-box;
 }
 
-/* sx={{ marginBottom: 5 }} */
 #title {
   padding-top: 1rem;
   margin-bottom: 2rem;
+}
+
+#table {
+  margin: 1rem 4rem;
+}
+
+/* sx={{ paddingRight: 2, paddingBottom: 2 }} */
+#control-panel {
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+}
+
+/* sx={{ margin: 5 }} */
+#graphic {
+  margin: 1rem 4rem;
+}
+
+@media (max-width: 900px) {
+  #table {
+    margin: 1rem 1rem;
+  }
+
+  #control-panel {
+    padding-right: 0;
+  }
+
+  #graphic {
+    margin: 1rem 1rem;
+  }
 }
 
 /* #root {

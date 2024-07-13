@@ -160,7 +160,7 @@ function App() {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quos mollitia suscipit sed quas at. Fugit neque porro quae tempore omnis, temporibus unde tenetur amet ex odio error, architecto sint?</p>
           </Grid>
 
-          <Grid sm={4} md={4} lg={4} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Grid sm={4} md={4} lg={4} sx={{ paddingY: 2, display: 'flex', justifyContent: 'center' }}>
             <Summary></Summary>
           </Grid>
 
@@ -172,16 +172,16 @@ function App() {
             <h2>Indicadores</h2>
           </Grid>
 
-          <Grid xs={6} sm={4} md={3} lg={2} sx={{ flexGrow: 1 }}>
+          <Grid xs={12} sm={6} md={3} lg={3} sx={{ flexGrow: 1 }}>
             {indicators[0]}
           </Grid>
-          <Grid xs={6} sm={4} md={3} lg={2} sx={{ flexGrow: 1 }}>
+          <Grid xs={12} sm={6} md={3} lg={3} sx={{ flexGrow: 1 }}>
             {indicators[1]}
           </Grid>
-          <Grid xs={6} sm={4} md={3} lg={2} sx={{ flexGrow: 1 }}>
+          <Grid xs={12} sm={6} md={3} lg={3} sx={{ flexGrow: 1 }}>
             {indicators[2]}
           </Grid>
-          <Grid xs={6} sm={4} md={3} lg={2} sx={{ flexGrow: 1 }}>
+          <Grid xs={12} sm={6} md={3} lg={3} sx={{ flexGrow: 1 }}>
             {indicators[3]}
           </Grid>
 
@@ -193,23 +193,23 @@ function App() {
             <h2>Tabla</h2>
           </Grid>
 
-          <Grid xs={12} md={12} lg={12} sx={{ marginX: 5 }}>
+          <Grid xs={12} md={12} lg={12}>
             {/* 4. Envíe la variable de estado (dataTable) como prop (input) del componente (BasicTable) */}
             <BasicTable rows={rowsTable}></BasicTable>
           </Grid>
 
         </Grid>
 
-        <Grid container xs={12} md={12} lg={12} id="graphic" sx={{ margin: 5 }}>
+        <Grid container xs={12} md={12} lg={12} id="graphic">
           <Grid xs={12} sm={12} md={12} lg={12} id="title">
             <h2>Grafico</h2>
           </Grid>
 
-          <Grid xs={12} sm={12} md={3} lg={2} sx={{ paddingRight: 2 }}>
+          <Grid xs={12} sm={12} md={3} lg={3} id="control-panel">
             <ControlPanel setValue={setTunnel} />
           </Grid>
 
-          <Grid xs={12} sm={12} md={9} lg={10}>
+          <Grid xs={12} sm={12} md={9} lg={9}>
             <WeatherChart value={tunnel} dataGraphic={dataGraphic}></WeatherChart>
           </Grid>
         </Grid>

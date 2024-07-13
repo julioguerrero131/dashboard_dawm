@@ -7,9 +7,11 @@ export default function Indicator(config: Config) {
   return (
     <Paper
       sx={{
-        p: 2,
+        px: 2,
+        py: 5,
+        m: 2,
         display: "flex",
-        flexDirection: "column",
+        flexDirection: "column"
       }}
     >
       <Typography component="h2" variant="h6" color="primary" gutterBottom>

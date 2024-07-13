@@ -47,7 +47,7 @@ export default function BasicTable(data: Config) {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 540 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Rango de horas</TableCell>

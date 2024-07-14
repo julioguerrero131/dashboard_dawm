@@ -1,4 +1,5 @@
 import Grid from '@mui/material/Unstable_Grid2'
+import './styles/fonts.css'
 import './styles/App.css'
 import Indicator from './components/Indicator'
 import Summary from './components/Summary'
@@ -147,15 +148,15 @@ function App() {
 
   return (
     <>
-      <Grid container rowGap={2} sx={{ width: '100%' }}>
+      <Grid container sx={{ width: '100%' }}>
 
         <Grid sm={12} md={12} lg={12} sx={{ padding: 0, margin: 0, width: '100%' }}>
           <Navbar />
         </Grid>
 
-        <Grid container sm={12} md={12} lg={12} id="summary" sx={{ width: '100%', marginY: 3, padding: 2, alignItems: 'center', justifyContent: 'center' }}>
+        <Grid container sm={12} md={12} lg={12} id="summary" sx={{ width: '100%', marginButton: 3, paddingY: 3, alignItems: 'center', justifyContent: 'center', backgroundColor: '#123f77' }}>
 
-          <Grid sm={8} md={8} lg={8} sx={{ textAlign: 'left', marginY: 3, padding: 2 }}>
+          <Grid sm={8} md={8} lg={8} sx={{ textAlign: 'left', marginY: 3, padding: 2, color: 'white' }}>
             <h3 id='inicio-title'>Guayaquil, Ecuador</h3>
             <p id='inicio-text'>
               Aquí encontrarás la información más actualizada sobre el clima de nuestra ciudad, incluyendo temperaturas, condiciones meteorológicas y pronósticos. ¡Mantente informado y planifica tu día con confianza!
@@ -172,6 +173,9 @@ function App() {
 
           <Grid xs={12} sm={12} md={12} lg={12} id="title">
             <h2 className='section-title'>Detalles de la Localización</h2>
+            <p>
+              Los indicadores de localización proporcionan información esencial sobre la ubicación específica dentro de la ciudad de Guayaquil para la que se están mostrando los datos climáticos. Estos indicadores son cruciales para ofrecer una perspectiva precisa y detallada del clima, ya que las condiciones meteorológicas pueden variar significativamente entre diferentes áreas de la ciudad.
+            </p>
           </Grid>
 
           <Grid xs={12} sm={6} md={3} lg={3} sx={{ flexGrow: 1 }}>
@@ -193,6 +197,9 @@ function App() {
 
           <Grid xs={12} md={12} lg={12} id="title">
             <h2 className='section-title'>Historial del Clima</h2>
+            <p>
+              Estos indicadores climáticos te ofrecen una visión clara y detallada de las condiciones meteorológicas en Guayaquil, permitiéndote estar siempre preparado y bien informado. Ya sea que necesites saber si llevar un paraguas, qué ropa vestir o simplemente tengas curiosidad por el clima, estos datos te serán de gran ayuda.
+            </p>
           </Grid>
 
           <Grid xs={12} md={12} lg={12}>
@@ -205,6 +212,9 @@ function App() {
         <Grid container xs={12} md={12} lg={12} id="graphic">
           <Grid xs={12} sm={12} md={12} lg={12} id="title">
             <h2 className='section-title'>Gráfico del Clima</h2>
+            <p>
+              Esta gráfica proporciona una visión integral de las principales variables climáticas que afectan el tiempo en Guayaquil. A través de esta visualización, podrás observar cómo varían la humedad, la precipitación y la nubosidad a lo largo del tiempo, lo que te ayudará a entender mejor las condiciones meteorológicas actuales y planificar tus actividades de manera más efectiva.
+            </p>
           </Grid>
 
           <Grid xs={12} sm={12} md={3} lg={3} id="control-panel">

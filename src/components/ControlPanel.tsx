@@ -60,12 +60,13 @@ export default function ControlPanel({ setValue }) {
       sx={{
         p: 2,
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        backgroundColor: 'white'
       }}
       elevation={5}
     >
 
-      <Typography mb={2} component="h3" variant="h6" color="primary">
+      <Typography mb={2} component="h3" variant="h6" sx={{ color: '#123f77' }}>
         Variables Meteorológicas
       </Typography>
 

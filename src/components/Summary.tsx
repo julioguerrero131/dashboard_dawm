@@ -47,7 +47,7 @@ export default function Summary() {
   }, []);
 
   return (
-    <Card sx={{ maxWidth: 345 }} elevation={5}>
+    <Card sx={{ maxWidth: 345, backgroundColor: 'white' }} elevation={5}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -56,7 +56,7 @@ export default function Summary() {
           alt="Amanecer"
         />
         <CardContent>
-          <Typography gutterBottom component="h2" variant="h6" color="primary">
+          <Typography gutterBottom component="h2" variant="h6" sx={{ fontWeight: 200, color: '#123f77' }}>
             {dateInfo.wish}
           </Typography>
           <Typography component="p" variant="h4">

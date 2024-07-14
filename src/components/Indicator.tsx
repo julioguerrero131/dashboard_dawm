@@ -11,11 +11,12 @@ export default function Indicator(config: Config) {
         py: 5,
         m: 2,
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        backgroundColor: 'white'
       }}
       elevation={5}
     >
-      <Typography component="h2" variant="h6" color="primary" gutterBottom>
+      <Typography component="h2" variant="h6" sx={{ color: '#123f77' }} gutterBottom>
         {config.title}
       </Typography>
       <Typography component="p" variant="h4">

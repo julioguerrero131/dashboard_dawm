@@ -1,7 +1,7 @@
 import { FaBars, FaTimes } from "react-icons/fa"
 import { useRef } from "react"
 import '../styles/NavBar.css'
-
+import logo from '../assets/icons8-clima-144.svg'
 
 export default function Navbar() {
 
@@ -13,7 +13,10 @@ export default function Navbar() {
 
   return (
     <header>
-      <h3>Logo</h3>
+      <div>
+        <img id="logo" src={logo} alt="logo" />
+        <h3 id="logo-title">Guayaquil Forecast</h3>
+      </div>
       <nav ref={navRef}>
         <a href="#" onClick={showNavBar}>Inicio</a>
         <a href="#indicators" onClick={showNavBar}>Indicadores</a>

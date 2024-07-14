@@ -7,8 +7,12 @@
   box-sizing: border-box;
 }
 
-#summary {
-  
+html {
+  scroll-behavior: smooth;
+}
+
+div[id] {
+  scroll-margin-top: 80px;
 }
 
 .section-title {
@@ -18,6 +22,10 @@
 #title {
   padding-top: 1rem;
   margin-bottom: 2rem;
+}
+
+#title > h2 {
+  padding: 1.5rem 0;
 }
 
 #inicio-title {

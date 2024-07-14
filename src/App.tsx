@@ -150,20 +150,20 @@ function App() {
     <>
       <Grid container sx={{ width: '100%' }}>
 
-        <Grid sm={12} md={12} lg={12} sx={{ padding: 0, margin: 0, width: '100%' }}>
+        <Grid sm={12} md={12} lg={12} sx={{ padding: 0, margin: 0, width: '100%', position: 'fixed', zIndex: 2 }}>
           <Navbar />
         </Grid>
 
-        <Grid container sm={12} md={12} lg={12} id="summary" sx={{ width: '100%', marginButton: 3, paddingY: 3, alignItems: 'center', justifyContent: 'center', backgroundColor: '#123f77' }}>
+        <Grid container sm={12} md={12} lg={12} id="summary" sx={{ width: '100%', marginTop: 7, paddingY: 3, alignItems: 'center', justifyContent: 'center', backgroundColor: '#123f77' }}>
 
-          <Grid sm={8} md={8} lg={8} sx={{ textAlign: 'left', marginY: 3, padding: 2, color: 'white' }}>
+          <Grid sm={8} md={9} lg={9} xl={9} sx={{ textAlign: 'left', marginY: 3, padding: 3, color: 'white' }}>
             <h3 id='inicio-title'>Guayaquil, Ecuador</h3>
             <p id='inicio-text'>
               Aquí encontrarás la información más actualizada sobre el clima de nuestra ciudad, incluyendo temperaturas, condiciones meteorológicas y pronósticos. ¡Mantente informado y planifica tu día con confianza!
             </p>
           </Grid>
 
-          <Grid sm={4} md={4} lg={4} sx={{ paddingY: 2, display: 'flex', justifyContent: 'center' }}>
+          <Grid sm={4} md={3} lg={3} xl={3} sx={{ paddingY: 2, paddingX: 2, display: 'flex', justifyContent: 'center', zIndex: 1 }}>
             <Summary></Summary>
           </Grid>
 
@@ -202,7 +202,7 @@ function App() {
             </p>
           </Grid>
 
-          <Grid xs={12} md={12} lg={12}>
+          <Grid xs={12} md={12} lg={12} sx={{ marginY: 2 }}>
             {/* 4. Envíe la variable de estado (dataTable) como prop (input) del componente (BasicTable) */}
             <BasicTable rows={rowsTable}></BasicTable>
           </Grid>
@@ -217,11 +217,11 @@ function App() {
             </p>
           </Grid>
 
-          <Grid xs={12} sm={12} md={3} lg={3} id="control-panel">
+          <Grid xs={12} sm={12} md={3} lg={3} id="control-panel" sx={{ marginY: 2 }}>
             <ControlPanel setValue={setTunnel} />
           </Grid>
 
-          <Grid xs={12} sm={12} md={9} lg={9}>
+          <Grid xs={12} sm={12} md={9} lg={9} sx={{ zIndex: 1, marginY: 2 }}>
             <WeatherChart value={tunnel} dataGraphic={dataGraphic}></WeatherChart>
           </Grid>
         </Grid>

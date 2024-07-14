@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
             transition: 'all 300ms'
           }}
           >
-            Julio Guerrero© {new Date().getFullYear()} Guayaquil ForeCast. Todos los derechos reservados.
+            Guayaquil ForeCast© {new Date().getFullYear()}Julio Guerrero. Todos los derechos reservados.
           </Typography>
 
     </Box>

@@ -83,8 +83,7 @@ export default function WeatherChart({ value, dataGraphic }) {
         // p: 1,
         pb: 3,
         display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: '#fafafa'
+        flexDirection: 'column'
       }}
       elevation={5}
       >

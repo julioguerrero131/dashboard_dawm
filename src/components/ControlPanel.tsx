@@ -61,7 +61,8 @@ export default function ControlPanel({ setValue }) {
         p: 2,
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        borderRadius: '5px'
       }}
       elevation={5}
     >

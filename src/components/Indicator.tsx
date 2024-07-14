@@ -12,7 +12,8 @@ export default function Indicator(config: Config) {
         m: 2,
         display: "flex",
         flexDirection: "column",
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        borderRadius: '10px'
       }}
       elevation={5}
     >

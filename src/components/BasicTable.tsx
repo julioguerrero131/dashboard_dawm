@@ -46,7 +46,7 @@ export default function BasicTable(data: Config) {
   {/* JSX */ }
 
   return (
-    <TableContainer component={Paper} elevation={5}>
+    <TableContainer component={Paper} elevation={5} sx={{ borderRadius: '5px' }}>
       <Table sx={{ minWidth: 540 }} aria-label="simple table">
         <TableHead>
           <TableRow>

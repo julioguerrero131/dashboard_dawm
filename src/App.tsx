@@ -8,6 +8,7 @@ import WeatherChart from './components/WeatherChart'
 import ControlPanel from './components/ControlPanel'
 import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -154,7 +155,7 @@ function App() {
           <Navbar />
         </Grid>
 
-        <Grid container sm={12} md={12} lg={12} id="summary" sx={{ width: '100%', marginTop: 7, paddingY: 3, alignItems: 'center', justifyContent: 'center', backgroundColor: '#123f77' }}>
+        <Grid container sm={12} md={12} lg={12} id="summary" sx={{ width: '100%', marginTop: 7, paddingY: 7, alignItems: 'center', justifyContent: 'center', backgroundColor: '#123f77' }}>
 
           <Grid sm={8} md={9} lg={9} xl={9} sx={{ textAlign: 'left', marginY: 3, padding: 3, color: 'white' }}>
             <h3 id='inicio-title'>Guayaquil, Ecuador</h3>
@@ -196,7 +197,7 @@ function App() {
         <Grid container xs={12} md={12} lg={12} id="table">
 
           <Grid xs={12} md={12} lg={12} id="title">
-            <h2 className='section-title'>Historial del Clima</h2>
+            <h2 className='section-title'>Historial Climático</h2>
             <p>
               Estos indicadores climáticos te ofrecen una visión clara y detallada de las condiciones meteorológicas en Guayaquil, permitiéndote estar siempre preparado y bien informado. Ya sea que necesites saber si llevar un paraguas, qué ropa vestir o simplemente tengas curiosidad por el clima, estos datos te serán de gran ayuda.
             </p>
@@ -211,7 +212,7 @@ function App() {
 
         <Grid container xs={12} md={12} lg={12} id="graphic">
           <Grid xs={12} sm={12} md={12} lg={12} id="title">
-            <h2 className='section-title'>Gráfico del Clima</h2>
+            <h2 className='section-title'>Gráfico Climático</h2>
             <p>
               Esta gráfica proporciona una visión integral de las principales variables climáticas que afectan el tiempo en Guayaquil. A través de esta visualización, podrás observar cómo varían la humedad, la precipitación y la nubosidad a lo largo del tiempo, lo que te ayudará a entender mejor las condiciones meteorológicas actuales y planificar tus actividades de manera más efectiva.
             </p>
@@ -227,6 +228,11 @@ function App() {
         </Grid>
 
       </Grid>
+
+      <Grid sm={12} md={12} lg={12} sx={{ padding: 0, margin: 0, width: '100%' }}>
+        <Footer />
+      </Grid>
+
     </>
   )
 }

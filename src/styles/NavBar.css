@@ -6,7 +6,7 @@
 
 :root {
 	--mainColor: #123f77;
-	--secondaryColor: #37cae5;
+	--secondaryColor: #fece00;
 	--textColor: #eee;
 }
 
@@ -31,6 +31,7 @@ header {
 }
 
 nav a {
+	font-size: 1.1rem;
 	margin: 0 1rem;
 	text-decoration: none;
 	color: var(--textColor);

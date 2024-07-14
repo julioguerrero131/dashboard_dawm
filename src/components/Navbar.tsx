@@ -19,8 +19,8 @@ export default function Navbar() {
       </div>
       <nav ref={navRef}>
         <a href="#" onClick={showNavBar}>Inicio</a>
-        <a href="#indicators" onClick={showNavBar}>Indicadores</a>
-        <a href="#table" onClick={showNavBar}>Tabla</a>
+        <a href="#indicators" onClick={showNavBar}>Detalles</a>
+        <a href="#table" onClick={showNavBar}>Historial</a>
         <a href="#graphic" onClick={showNavBar}>Gráfico</a>
         <button className="nav-btn nav-close-btn" onClick={showNavBar}>
           <FaTimes />

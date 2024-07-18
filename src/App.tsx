@@ -167,6 +167,7 @@ function App() {
             <p id='inicio-text'>
               Aquí encontrarás la información más actualizada sobre el clima de nuestra ciudad, incluyendo temperaturas, condiciones meteorológicas y pronósticos. ¡Mantente informado y planifica tu día con confianza!
             </p>
+            <InputText setValue={setCiudad}></InputText>
           </Grid>
 
           <Grid sm={4} md={3} lg={3} xl={3} sx={{ paddingY: 2, paddingX: 2, display: 'flex', justifyContent: 'center', zIndex: 1 }}>
@@ -174,8 +175,6 @@ function App() {
           </Grid>
 
         </Grid>
-
-        <InputText setValue={setCiudad}></InputText>
 
         <Grid container lg={12} id="indicators" sx={{ width: '100%', margin: 5, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
 

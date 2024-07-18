@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Button, Input, Typography } from '@mui/material';
 
 function InputText({ setValue }) {
   const [inputValue, setInputValue] = useState('');
@@ -6,13 +7,13 @@ function InputText({ setValue }) {
 
   const handleButtonClick = () => {
     if (inputValue !== null) {
-      setSavedValue(inputValue);
-      setValue(inputValue)
+      let ciudad = inputValue.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+      setSavedValue(ciudad);
+      setValue(ciudad)
     } else {
       setSavedValue('Guayaquil');
       setValue('Guayaquil')
     }
-    
   };
 
   const handleInputChange = (event) => {
@@ -20,16 +21,18 @@ function InputText({ setValue }) {
   };
 
   return (
-    <div>
-      <input
+    <>
+      <Input
         type="text"
         value={inputValue}
         onChange={handleInputChange}
-        placeholder="Type something..."
+        placeholder="Ingresa una ciudad"
+        style={{ marginRight: '10px', marginTop: '30px', color: 'white', width: '80%' }}
       />
-      <button onClick={handleButtonClick}>Save</button>
-      <p>Saved value: {savedValue}</p>
-    </div>
+      <Button variant="contained" color="primary" onClick={handleButtonClick}>
+        Cambiar
+      </Button>
+    </>
   );
 }
 

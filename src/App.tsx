@@ -9,6 +9,7 @@ import ControlPanel from './components/ControlPanel'
 import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import InputText from './components/InputText'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
   let [rowsTable, setRowsTable] = useState([])
   let [dataGraphic, setDataGraphic] = useState([])
   let [tunnel, setTunnel] = useState([])
+  let [ciudad, setCiudad] = useState('Guayaquil') 
 
 
   {/* Hook: useEffect */ }
@@ -46,13 +48,15 @@ function App() {
           (2) La estampa de tiempo actual es mayor al tiempo de expiración 
       */}
 
-      if (expiringTime === null || nowTime > parseInt(expiringTime)) {
+      if (expiringTime === null || nowTime > parseInt(expiringTime) || ciudad !== localStorage.getItem('ciudad')) {
 
         {/* 5. Request */ }
 
         let API_KEY = "36f32d81d506e434b4d202f2d33bf699"
-        let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=Guayaquil&mode=xml&appid=${API_KEY}`)
-        savedTextXML = await response.text();
+        let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${ciudad}&mode=xml&appid=${API_KEY}`)
+        if (response.ok) {
+          savedTextXML = await response.text();
+        }
 
 
         {/* 6. Diferencia de tiempo */ }
@@ -65,6 +69,7 @@ function App() {
 
         localStorage.setItem("openWeatherMap", savedTextXML)
         localStorage.setItem("expiringTime", (nowTime + delay).toString())
+        localStorage.setItem('ciudad', ciudad)
       }
 
       {/* XML Parser */ }
@@ -145,7 +150,7 @@ function App() {
 
     })()
 
-  }, [])
+  }, [ciudad])
 
   return (
     <>
@@ -158,7 +163,7 @@ function App() {
         <Grid container sm={12} md={12} lg={12} id="summary" sx={{ width: '100%', marginTop: 7, paddingY: 7, alignItems: 'center', justifyContent: 'center', backgroundColor: '#123f77' }}>
 
           <Grid sm={8} md={9} lg={9} xl={9} sx={{ textAlign: 'left', marginY: 3, padding: 3, color: 'white' }}>
-            <h3 id='inicio-title'>Guayaquil, Ecuador</h3>
+            <h3 id='inicio-title'>{ciudad}, Ecuador</h3>
             <p id='inicio-text'>
               Aquí encontrarás la información más actualizada sobre el clima de nuestra ciudad, incluyendo temperaturas, condiciones meteorológicas y pronósticos. ¡Mantente informado y planifica tu día con confianza!
             </p>
@@ -169,6 +174,8 @@ function App() {
           </Grid>
 
         </Grid>
+
+        <InputText setValue={setCiudad}></InputText>
 
         <Grid container lg={12} id="indicators" sx={{ width: '100%', margin: 5, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
 
